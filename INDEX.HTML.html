@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title> DAVID .A. OGWUCHE  </title>
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#06060a;
+    --panel:#0f1220;
+    --muted: rgba(255,255,255,0.65);
+    --accent1: #7c5cff;
+    --accent2: #28c7f4;
+    --glass: rgba(255,255,255,0.04);
+    --radius: 16px;
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+    background: radial-gradient(1200px 400px at 10% 10%, rgba(124,92,255,0.08), transparent),
+                radial-gradient(900px 300px at 90% 90%, rgba(40,199,244,0.06), transparent),
+                var(--bg);
+    color:#e9eef8;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    overflow-x:hidden;
+  }
+
+  .wrap{max-width:1200px;margin:0 auto;padding:36px;}
+  header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 0}
+  .brand{display:flex;align-items:center;gap:14px}
+  .logo{
+    width:56px;height:56px;border-radius:12px;
+    background:linear-gradient(135deg,var(--accent1),var(--accent2));
+    display:grid;place-items:center;font-weight:800;color:white;font-size:18px;box-shadow:0 8px 30px rgba(12,12,20,0.6);
+  }
+  .name {font-weight:700;font-size:1.05rem;letter-spacing:0.2px}
+  nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
+  nav a:hover{color:#fff;transform:translateY(-2px)}
+
+  
+  .hero{
+    display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:36px 0 60px;
+  }
+  .hero-left{padding-right:20px}
+  .eyebrow{color:var(--muted);font-weight:600;margin-bottom:8px}
+  h1{font-size: clamp(28px, 4.8vw, 48px); line-height:1; margin:0 0 14px}
+  .lead{color:var(--muted);max-width:68ch;font-size:1.02rem;margin-bottom:18px}
+  .cta-row{display:flex;gap:12px;align-items:center}
+  .btn{
+    background:linear-gradient(90deg,var(--accent1),var(--accent2));
+    color:white;padding:12px 18px;border-radius:12px;font-weight:700;border:0;cursor:pointer;box-shadow:0 12px 30px rgba(44,22,100,0.25)
+  }
+  .ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 14px;border-radius:12px;color:var(--muted);cursor:pointer}
+
+  .hero-right{
+    height:380px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    position:relative;overflow:hidden;padding:18px;box-shadow:0 20px 50px rgba(2,2,8,0.5)
+  }
+ 
+  .device{
+    width:340px;height:220px;background:linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:14px;padding:16px;color:#dfe8ff;position:absolute;right:18px;top:28px;
+    transform:rotate(-6deg);box-shadow:0 18px 50px rgba(12,12,20,0.6);backdrop-filter: blur(6px);
+  }
+  .device .dash {display:flex;gap:8px;margin-bottom:10px}
+  .chip{width:12px;height:12px;border-radius:4px;background:linear-gradient(90deg,var(--accent1),var(--accent2))}
+  .chart{height:92px;background:linear-gradient(90deg, rgba(255,255,255,0.03), transparent);border-radius:10px;padding:10px;display:flex;align-items:end;gap:6px}
+  .bar{width:14px;border-radius:6px;background:linear-gradient(180deg,var(--accent2),var(--accent1));transform-origin:bottom;transition: transform .6s cubic-bezier(.2,.9,.2,1)}
+  .hero-right .glow{
+    position:absolute;left:-120px;top:-80px;width:300px;height:300px;border-radius:50%;filter:blur(72px);opacity:.9;background:linear-gradient(90deg,var(--accent1),var(--accent2));
+  }
+
+  section{padding:36px 0}
+  .section-title{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+  .section-title h2{font-size:1.35rem;margin:0}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+
+  .card{
+    background:linear-gradient(180deg,var(--panel), rgba(255,255,255,0.01));
+    border-radius:14px;padding:18px;box-shadow:0 8px 30px rgba(66, 66, 66, 0.6);transition:transform .28s ease, box-shadow .28s ease;
+    position:relative;overflow:hidden;cursor:default;
+  }
+  .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(2,6,20,0.75)}
+  .kicker{color:var(--muted);font-weight:700;font-size:.82rem;margin-bottom:8px}
+  .big{font-size:1.08rem;font-weight:700;margin-bottom:8px}
+  .muted{color:var(--muted);font-size:.95rem}
+
+  
+  .project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+  .project-thumb{height:160px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);display:flex;align-items:end;padding:14px;background-size:cover;background-position:center;position:relative}
+  .project-thumb .overlay{backdrop-filter: blur(6px);background:linear-gradient(180deg, transparent, rgba(0,0,0,0.5));padding:8px;border-radius:10px;margin:8px;color:white}
+
+  .timeline{position:relative;padding-left:12px}
+  .timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(var(--accent1),var(--accent2));opacity:.18}
+  .event{position:relative;padding:16px 16px 16px 36px;margin-bottom:18px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border-radius:12px}
+  .event::before{content:'';position:absolute;left:-2px;top:18px;width:14px;height:14px;border-radius:4px;background:var(--panel);border:3px solid var(--accent2);transform:translateX(-50%)}
+  .event h4{margin:0 0 6px}
+  .event .when{color:var(--muted);font-size:.9rem;margin-bottom:6px}
+
+ 
+  .certs{display:flex;gap:12px;flex-wrap:wrap}
+  .cert{background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);padding:12px 14px;border-radius:10px;font-weight:700;color:#dfe8ff;border:1px solid rgba(255,255,255,0.03)}
+
+  
+  footer{padding:36px 0;color:var(--muted);text-align:center;font-size:.95rem}
+
+  
+  .modal{
+    position:fixed;inset:0;display:grid;place-items:center;background:rgba(179, 175, 175, 0.6);z-index:60;opacity:0;pointer-events:none;transition:all .28s ease;
+  }
+  .modal.open{opacity:1;pointer-events:auto}
+  .modal-card{width:clamp(300px,80vw,880px);background:linear-gradient(180deg,#0e1220,#071026);border-radius:14px;padding:22px;box-shadow:0 40px 90px rgba(2,6,20,0.8)}
+  .modal-close{position:absolute;right:18px;top:16px;background:transparent;border:0;color:var(--muted);font-weight:700;cursor:pointer}
+
+  
+  @media (max-width:880px){
+    .hero{grid-template-columns:1fr;gap:18px}
+    .hero-right{height:300px}
+    nav{display:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <div class="logo">DO</div>
+      <div>
+        <div class="name"> DAVID OGWUCHE</div>
+        <div style="font-size:.82rem;color:var(--muted)">Creative Developer • UI & Motion</div>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#experience">Experience</a>
+      <a href="#certs">Certs</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  
+  <section class="hero" aria-label="Introduction">
+    <div class="hero-left">
+      <div class="eyebrow">Hi — I'm</div>
+      <h1>WEB DEVELOPER  AND CYBER SERCURITY ANALYST</h1>
+      <p class="lead">I build high-performance webSITES  with smooth motion and clean code. Mix of design sensibility and engineering — React, Node, JS, CSS, and some backend love.</p>
+
+      <div class="cta-row">
+        <a class="ghost" href="#contact"> HIRE ME </a>
+      </div>
+
+      <div style="margin-top:18px;color:var(--muted);font-size:.92rem">
+        Based in Nigeria • Open to remote & contract • Student: PHYSICS
+      </div>
+    </div>
+
+    <div class="hero-right" aria-hidden="false">
+      <div class="glow" aria-hidden="true"></div>
+
+      
+      <div class="device" id="device">
+        <div class="dash">
+          <div class="chip"></div>
+          <div style="flex:1">
+            <div style="display:flex;justify-content:space-between;color:var(--muted);font-weight:700;font-size:.86rem">
+              <span> DAVID ADAKOLE OGWUCHE </span><span style="opacity:.7">Live</span>
+            </div>
+            <div style="font-size:.78rem;color:var(--muted);margin-top:6px">  THIS PORTFOLIO • DAVECODEZ62</div>
+          </div>
+        </div>
+
+        <div class="chart" aria-hidden="true">
+         
+          <div class="bar" style="height:38%"></div>
+          <div class="bar" style="height:64%"></div>
+          <div class="bar" style="height:46%"></div>
+          <div class="bar" style="height:74%"></div>
+          <div class="bar" style="height:52%"></div>
+          <div class="bar" style="height:86%"></div>
+          <div class="bar" style="height:100%"></div>
+        </div>
+
+      </div>
+
+      
+      <svg width="100%" height="100%" style="position:absolute;left:8px;bottom:-40px;opacity:.12" viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1">
+            <stop offset="0" stop-color="#7c5cff" /><stop offset="1" stop-color="#28c7f4"/>
+          </linearGradient>
+        </defs>
+        <path d="M0,120 C120,40 320,200 600,80 L600 300 L0 300 Z" fill="url(#g1)"></path>
+      </svg>
+    </div>
+  </section>
+
+
+
+  <section id="experience">
+    <div class="section-title"><h2>Work Experience</h2></div>
+
+    <div class="timeline">
+      <div class="event">
+        <h4> WEB DESIGNER — SENTINEL LAWRENCE .LTD</h4>
+        <div class="when">SEPT 2025 – Present</div>
+        <div class="muted">Built interactive components, improved site performance, added unit tests, and contributed to design system pieces used across product pages.</div>
+      </div>
+  </section>
+
+ 
+  <section id="certs">
+    <div class="section-title"><h2>Certifications</h2></div>
+
+    <div class="certs">
+      <div class="cert">CISCO — ETHIAL HACKER</div>
+      <div class="cert">CISCO — END POINT SERCURITY</div>
+      <div class="cert">CISCO — NETWORK DEFENCE </div>
+      <div class="cert">CISCO — CYBER THREAT MANAGMENT</div>
+      <div class="cert">CISCO — COMPUTER HARDWARE BASICS </div>
+      <div class="cert">CISCO — JAVASCRIPT ESSENCIALS  </div>
+       <div class="cert">CISCO — INTRO TO CYBER SECURITY</div>
+    </div>
+  </section>
+
+
+  <section id="contact">
+    <div class="section-title"><h2>Contact</h2></div>
+
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="min-width:260px" class="card">
+        <div class="kicker">Email</div>
+        <div class="big">DAVECODEZ62@email.com</div>
+        <div class="muted"> I REPLY WITHIN A FEW DAYS.</div>
+      </div>
+
+       <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="min-width:260px" class="card">
+        <div class="kicker">PHONE</div>
+        <div class="big">+2349073757714</div>
+        <div class="muted">TYPICALLY RESPOND WITHIN AN HOUR </div>
+      </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>© <span id="year"></span>  DAVID .A.J. OGWUCHE </footer>
+</div>
+
+
+
+<script>
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  
+  document.querySelectorAll('.chart .bar').forEach((b, i) => {
+    const base = parseInt(b.style.height || '50%');
+    b.style.transform = 'scaleY(0.02)';
+    b.style.transition = 'transform 700ms cubic-bezier(.2,.9,.2,1) ' + (i*70) + 'ms';
+    setTimeout(()=> b.style.transform = 'scaleY(1)', 100);
+  });
+
+ 
+  const tiltCards = document.querySelectorAll('.card');
+  tiltCards.forEach(card=>{
+    card.addEventListener('mousemove', (e)=>{
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+      const rx = (y - 0.5) * 6; 
+      const ry = (x - 0.5) * -10; 
+      card.style.transform = `translateY(-6px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+      card.style.transition = 'transform 80ms linear';
+    });
+    card.addEventListener('mouseleave', ()=>{
+      card.style.transform = '';
+      card.style.transition = 'transform 300ms cubic-bezier(.2,.9,.2,1)';
+    });
+  });
+
+ document.querySelectorAll('.project').forEach(p=>{
+    p.addEventListener('click', ()=>{
+      const title = p.dataset.title || 'Project';
+      const desc = p.dataset.desc || '';
+      modalTitle.textContent = title;
+      modalDesc.textContent = desc;
+ 
+      modalDemo.href = '#';
+      modalCode.href = '#';
+      openModal();
+    });
+  });
+
+  function openModal(){
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+  }
+  function closeModal(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+  }
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e)=>{
+    if(e.target === modal) closeModal();
+  });
+
+ 
+  document.getElementById('viewWorkBtn').addEventListener('click', ()=>{
+    document.getElementById('projects').scrollIntoView({behavior:'smooth'});
+  });
+
+  
+  const device = document.getElementById('device');
+  let lastX = 0, lastY = 0;
+  document.addEventListener('mousemove', (e)=>{
+    const tx = (e.clientX / window.innerWidth - 0.5) * 16; // -8 to 8
+    const ty = (e.clientY / window.innerHeight - 0.5) * 8;
+    lastX += (tx - lastX) * 0.06;
+    lastY += (ty - lastY) * 0.06;
+    device.style.transform = `translate(${lastX}px, ${lastY}px) rotate(-6deg)`;
+  });
+
+ 
+  window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
+
+ 
+  const focusable = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+  modal.addEventListener('transitionend', ()=>{
+    if(modal.classList.contains('open')) {
+      const first = modal.querySelector(focusable);
+      if(first) first.focus();
+    }
+  });
+
+</script>
+</body>
+</html>
